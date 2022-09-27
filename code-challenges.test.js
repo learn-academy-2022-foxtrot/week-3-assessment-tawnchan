@@ -141,13 +141,19 @@ describe("sumOfArray", () => {
 
 // // b) Create the function that makes the test pass.
 
+// Declare the function by naming it 'sumOfArray' and set up the structure for the function.
 const sumOfArray = (arr) => {
-  let tempArr = [arr[0]];
-  if (arr.length === 0) {
-    return [];
-  } else if {
-    for (i=1, i<arr.length, )
+  // Declare an empty array 'tempArr' to hold the new variables after the iteration of the function. 
+  let tempArr = [];
+  // Declare a new variable called 'sum' with the default value of '0' to add onto and update the value in the array.
+  let sum = 0
+  // crate a for loop to iterate through the given variable through each index.
+  for (let i=0; i<arr.length; i++) {
+    // with each iteration add the sum to the index of the array that is currently being iterated and assign the outcome to the sum variable.
+    sum = sum + arr[i]
+    // push the value of 'sum' to the tempArr.
+    tempArr.push(sum)
   }
-}
-
-
+  // Return tempArr. 
+  return tempArr
+  }
