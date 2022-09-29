@@ -64,20 +64,12 @@
         }
         // No need to change anything ABOVE this line ^
 
-        // bug fix #1 - there are a bunch of squiggly lines under code inside the return so there is probably something wrong with that.. meow. I inspected the console of the page. meow and it shows that there is a SynthaxError. meow. it asks if I want a JSX fragment <>...</>...meow I finally figured out that it was missing fragments.. meow, so added those to encompass everything inside of the return. After I did that, meow, all the squiggly lines went away.. meoyay. I think we use it to group our nodes of parents and children together. meow. I'm not sure if i understand it correctly, but it's missing those. I think everything that will be rendered in the page, meow, renders within those fragments. meow. 
-
-        // bug fix #2 - I checked the webpage console again. meow. and now it shows a different SynthaxError. meow. which means our first SynthaxError, meow, JSX attributes must only be assigned a non-empty expresson. meow.. and it points to the first button line, specfically at the onClick function brackets. meow. which means it is missing the function of what we want them, meow, button to do. meow. I checked up top and see that there are two functions declared.. meow. so since this one is on the button 'Click to Draw a Card', I am guessing we should pass on that function into that button, meow. And, viola, meow... the two buttons and the header 'Draw a Card' appears in the webappage. meoyay. Only the cliCk to draw a card button works. checking the console again. meow, and we get a new error... which brings us to.. meow
-
-        // bug #3.. meow. the error says "Warning: Invalid event handler property `onclick`. Did you mean `onClick`?"..meow... so it's pointing to the problem 'onclick' meow. and giving me a suggestion, meow.. the difference is the capital C.. meow. Let's change that.. meow. the Warning Error disappeared, there are no more errors.. meoyaya. And, both buttons work as they should. meow. 
-
-
         return (
-          <> 
           <h1>Draw a Card</h1>
-          <button onClick={drawCard}>
+          <button onClick={}>
             Click to Draw a Card
           </button>
-          <button onClick={shuffle}>
+          <button onclick={shuffle}>
             Return Cards and Shuffle Deck
           </button>
           <div style={handStyles}>
@@ -89,7 +81,6 @@
               )
             })}
           </div>
-          </>
         )
       }
 
