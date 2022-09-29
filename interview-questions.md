@@ -74,7 +74,43 @@ Researched answer:  When wanting windows for advertising.. or a container showca
     a object oriented scripting programming language. created in 1993.. popularized with ruby on RAILS. 
     
 3. Implicit return:
+    Implicit return is an automatic return of outputs from functions or methods without the developer actually calling for the return.  
+
+    For example, if you declared a function and wrote all the logic for that function.. and in the function you did not call for a return... it would still return an output when invoking the function/method.
 
 4. Ruby blocks:
+    Ruby blocks are blocks of code that are similar to methods. they pass behavior as an argument insted of data as an argument.
 
-5. Ruby hashes:
+    things such as .time, .upCase, .capitalize... etc. 
+
+5. Ruby hashes: 
+    Hashes are sets of key/values pairs. They are similiar to arrays, but the indexing is done differently than arrays, where they are not referred to by their indexes.. but instead it is done by keys.
+
+    Hashes also have built in methods for manipulating data. Hashes has a lot of built in methods.  Here are some:
+
+    1	
+hash == other_hash
+
+Tests whether two hashes are equal, based on whether they have the same number of key-value pairs, and whether the key-value pairs match the corresponding pair in each hash.
+
+2	
+hash.[key]
+
+Using a key, references a value from hash. If the key is not found, returns a default value.
+
+3	
+hash.[key] = value
+
+Associates the value given by value with the key given by key.
+
+4	
+hash.clear
+
+Removes all key-value pairs from hash.
+
+5	
+hash.default(key = nil)
+
+Returns the default value for hash, nil if not set by default=. ([] returns a default value if the key does not exist in hash.)
+
+
