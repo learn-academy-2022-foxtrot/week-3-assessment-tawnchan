@@ -20,7 +20,43 @@ const fibLength1 = 6
 const fibLength2 = 10
 // Expected output: [1, 1, 2, 3, 5, 8, 13, 21, 34, 55]
 
+// describe the name of the function and structure the the test.
+// the function will be called "printFib".
+// this function is going to take in a number and returns an array of the Fibonacci sequence in length equal to the given variable.
+describe("printFib", () => {
+  // describe what the function will do with an 'it()' statement.
+  // within the 'it()' perentheses we will explain in plain english what the function will do
+  it(`takes in an input of a number greatr than 2 and return an array of that length containing Fibonacci sequence`, () => {
+  // with an expect statement method, we will pass through the given variables through the function we called "printFib" .toEqual our expected outcome:
+  
+    expect(printFib(fibLength1)).toEqual([1, 1, 2, 3, 5, 8])
+    expect(printFib(fibLength2)).toEqual([1, 1, 2, 3, 5, 8, 13, 21, 34, 55])
+  })
+})
+//Output: ReferenceError: printFib is not defined, this is a good error because the test works but we haven't defined the function 'printFib' yet.. which should return a pass once we create the function that will make this test pass.  
+
+
 // b) Create the function that makes the test pass.
+
+// declare the function and build structure.
+// function with const, name it pintFib, which takes in a number (n) as reference.
+const printFib = (n) => {
+  // declare an array and set the index to 1.
+  let fibNumSequence = [1]
+  // declare a method called 'nexTerm' with an initial value of 1.
+  let nextTerm = 1;
+  // iterate through each index of the array 'fibNumSequence' starting at index 0 until the given num (n) is greater than the index -1. 
+  for (let i = 0; i < n -1 ; i++) {
+    //push the variable nextTerm to the array fibNumSequence to start after 1. 
+    fibNumSequence.push(nextTerm)
+    // assign nextTerm + fibNumSequence[i] to the variable nextTerm to continue adding on the sequence.
+    nextTerm = nextTerm + fibNumSequence[i]
+  }
+  //print fibNumSequence
+  return fibNumSequence
+}
+
+//calling on this function with the given variables will give an output of the number of index's of the Fibonnaci sequence similar to the number given. 
 
 // --------------------2) Create a function that takes in an object and returns an array of the numbers sorted from least to greatest.
 // Hint: Check out this resource: Object.values() https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_objects/Object/values
@@ -49,7 +85,35 @@ const studyMinutesWeek2 = {
 }
 // Expected output: [10, 15, 20, 45, 60, 65, 100]
 
+// describe the name of the function and structure the the test.
+// the function will be called "lessToMore".
+describe("lessToMore", () => {
+  // describe what the function will do with an 'it()' statement.
+  // within the 'it()' perentheses we will explain in plain english what the function will do
+  it(`takes in an object and returns the only the values sorted from least to greatest`, () => {
+  // with an expect statement method, we will pass through the given variables/objects through the function we called "lessTomore" .toEqual our expected outcome:
+    expect(lessToMore(studyMinutesWeek1)).toEqual([15, 15, 20, 30, 30, 60, 90])
+    expect(lessToMore(studyMinutesWeek2)).toEqual([10, 15, 20, 45, 60, 65, 100])
+  })
+})
+//outcome:  ReferenceError: lessToMore is not defined.  This is a good error since we haven't defined the sumOfArray function. Once we complete the function, the test should past. 
+
 // b) Create the function that makes the test pass.
+// declare the function 'lessToMore' that takes in an object, which in this case is an object with keys of name of the week and values of numbers (num).
+const lessToMore = (object) => {
+// return the Object.values returns the values of an (object) and  we .sort() it through with an anonymous function that takes in two variables.. num1 and num2 and it returns num1 - num2... whichever is higher goes on to the next index as it iterates through... the sort function returns an array equal to the index.length of the object given. 
+  return Object.values(object).sort(function(num1, num2){return num1 - num2});
+}
+
+// const less = (obj) => {
+//   const keys = Object.keys(obj);
+//   let newArr = [];
+//   array.sort(([,a],[,b]) => a-b);
+//   newArr.push(obj [keys])
+//   return newArr;
+// }
+
+
 
 // --------------------3) Create a function that takes in an array and returns an array of the accumulating sum. An empty array should return an empty array.
 
@@ -64,4 +128,32 @@ const accountTransactions2 = [250, -89, 100, -96]
 const accountTransactions3 = []
 // Expected output: []
 
-// b) Create the function that makes the test pass.
+
+describe("sumOfArray", () => {
+  it("partialSum will take in an array as an argument and return an array of the accumulating sum", () => {
+    expect(sumOfArray(accountTransactions1)).toEqual([100, 83, 60, 51])
+    expect(sumOfArray(accountTransactions2)).toEqual([250, 161, 261, 165])
+    expect(sumOfArray(accountTransactions3)).toEqual([])
+  })
+})
+
+// outcome: ReferenceError: sumOfArray is not defined.  This is a good error since we haven't defined the sumOfArray function. Once we complete the function, the test should past. 
+
+// // b) Create the function that makes the test pass.
+
+// Declare the function by naming it 'sumOfArray' and set up the structure for the function.
+const sumOfArray = (arr) => {
+  // Declare an empty array 'tempArr' to hold the new variables after the iteration of the function. 
+  let tempArr = [];
+  // Declare a new variable called 'sum' with the default value of '0' to add onto and update the value in the array.
+  let sum = 0
+  // crate a for loop to iterate through the given variable through each index.
+  for (let i=0; i<arr.length; i++) {
+    // with each iteration add the sum to the index of the array that is currently being iterated and assign the outcome to the sum variable.
+    sum = sum + arr[i]
+    // push the value of 'sum' to the tempArr.
+    tempArr.push(sum)
+  }
+  // Return tempArr. 
+  return tempArr
+  }
